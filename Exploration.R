@@ -3,14 +3,14 @@ library(png)
 
 filename <- "uk.png"
 MyImage <- readPNG(paste("TestImages/", filename, sep = ""))
-
+MyDim <- dim(MyImage)
 png(
   paste("TestImages/", filename, "Original.png", sep = ""),
   width = 500,
   height = 500
 )
-plot(1:2, type = "n")
-rasterImage(MyImage, 1, 1, 2, 2)
+plot(1:MyDim[2],1:MyDim[1], type = "n")
+rasterImage(MyImage, 1, 1, MyDim[2], MyDim[1])
 dev.off()
 
 MyDim <- dim(MyImage)
